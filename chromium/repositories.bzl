@@ -40,7 +40,7 @@ def _chromium_repo_impl(repository_ctx):
     repository_ctx.report_progress("Downloading and extracting CHROMIUM toolchain")
     repository_ctx.download_and_extract(
         url = file_url,
-        stripPrefix = "chromium-{}".format(repository_ctx.attr.os),
+        stripPrefix = "chrome-{}".format(repository_ctx.attr.os),
         sha256 = repository_ctx.attr.sha256,
     )
 
