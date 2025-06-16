@@ -20,21 +20,21 @@ with only the toolchain attribute pointing into the platform-specific repositori
 # Add more platforms as needed to mirror all the binaries
 # published by the upstream project.
 PLATFORMS = {
-    "Mac_Arm": struct(
+    "mac-arm64": struct(
         os = "mac",
         compatible_with = [
             "@platforms//os:macos",
             "@platforms//cpu:arm64",
         ],
     ),
-    "Mac": struct(
+    "mac": struct(
         os = "mac",
         compatible_with = [
             "@platforms//os:macos",
             "@platforms//cpu:x86_64",
         ],
     ),
-    "Linux_x64": struct(
+    "linux": struct(
         os = "linux",
         compatible_with = [
             "@platforms//os:linux",
