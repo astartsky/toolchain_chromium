@@ -35,7 +35,7 @@ _ATTRS = {
 }
 
 def _chromium_repo_impl(repository_ctx):
-    file_url = "https://gsdview.appspot.com/chromium-browser-snapshots/{}/{}/chrome-{}.zip".format(repository_ctx.attr.platform, repository_ctx.attr.chromium_revision, repository_ctx.attr.os)
+    file_url = "https://playwright.azureedge.net/builds/chromium/{}/chromium-{}.zip".format(repository_ctx.attr.chromium_revision, repository_ctx.attr.filename)
 
     repository_ctx.report_progress("Downloading and extracting CHROMIUM toolchain")
     repository_ctx.download_and_extract(
@@ -95,6 +95,7 @@ def chromium_register_toolchains(name, sha256, **kwargs):
             name = name + "_" + platform,
             platform = platform,
             os = PLATFORMS[platform].os,
+            filename = PLATFORMS[platform].filename,
             sha256 = sha256[platform],
             **kwargs
         )
